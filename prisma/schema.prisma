@@ -1,0 +1,52 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["relationJoins"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id       String @id @default(uuid())
+  login    String @unique
+  password String
+  cart     Cart?
+}
+
+model Cart {
+  id        String     @id @default(uuid())
+  userId    String     @unique
+  user      User       @relation(fields: [userId], references: [id])
+  cartItems CartItem[]
+}
+
+model CartItem {
+  id        String  @id @default(uuid())
+  cartId    String
+  productId String
+  quantity  Int
+  product   Product @relation(fields: [productId], references: [id])
+  cart      Cart    @relation(fields: [cartId], references: [id])
+
+  @@unique([cartId, productId])
+}
+
+model Category {
+  id      String    @id @default(uuid())
+  name    String
+  product Product[] @relation("CategoryToProduct")
+}
+
+model Product {
+  id              String     @id @default(uuid())
+  name            String
+  price           Float
+  description     String
+  imageLink       String
+  rating          Float
+  ratingsQuantity Int
+  cartItems       CartItem[]
+  categories      Category[] @relation("CategoryToProduct")
+}

@@ -1,0 +1,46 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "prisma": {
+    "seed": "tsx prisma/seed/seed.ts"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "lint:css": "stylelint \"**/*.{css,vue}\" --ignore-path .gitignore",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "@ngneat/falso": "^7.2.0",
+    "@pinia/nuxt": "0.5.5",
+    "@prisma/client": "5.20.0",
+    "nouislider": "15.8.1",
+    "nuxt": "3.13.2",
+    "pinia": "2.2.4"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "0.5.7",
+    "@nuxtjs/tailwindcss": "6.12.1",
+    "eslint-plugin-tailwindcss": "3.17.4",
+    "nuxt-icon": "0.6.10",
+    "prisma": "5.20.0",
+    "stylelint": "16.9.0",
+    "stylelint-config-standard": "36.0.1",
+    "stylelint-config-standard-vue": "1.0.0",
+    "tsx": "^4.19.1"
+  },
+  "volta": {
+    "node": "20.13.0",
+    "npm": "10.7.0"
+  },
+  "@snaplet/seed": {
+    "config": "prisma\\seed\\seed.config.ts"
+  }
+}

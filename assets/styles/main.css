@@ -1,0 +1,47 @@
+@import url("./abstract/reset.css");
+@import url("./base.css");
+
+@tailwind components;
+@tailwind base;
+
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+@layer components {
+    .wrapper {
+        @apply max-w-[1680px] w-full px-5;
+    }
+
+    .quad-grid {
+        @apply grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 grid-flow-row;
+    }
+
+    .pagination-control {
+        @apply rounded-full bg-gray-200 px-3 py-2 text-sm hover:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-50 flex justify-center
+    }
+
+    .base-button {
+        @apply flex gap-0 font-bold text-white p-3 rounded-lg bg-main-color
+    }
+
+    .base-input {
+        @apply border-2 border-solid border-slate-300 p-2
+    }
+
+    @media (width >= 1280px) {
+        .wrapper {
+            @apply px-11;
+        }
+    }
+
+    @media (width >= 1680px) {
+        .wrapper {
+            @apply px-0;
+        }
+    }
+}
