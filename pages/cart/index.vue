@@ -19,9 +19,9 @@ function handlePurchase() {
     navigateTo('/cart/thanks');
 }
 
-function loadProducts() {
+// function loadProducts() {
 
-}
+// }
 </script>
 
 <template>
@@ -53,7 +53,8 @@ function loadProducts() {
                 </div>
                 <CartDataCell label="Each" :value="`${item.product.price} ${CURRENCY}`" />
                 <CartDataCell label="Quantity" :value="`${item.quanitity}`" />
-                <CartDataCell label="Total: " :value="`${(item.product.price * item.quanitity).toFixed(2)} ${CURRENCY}`" />
+                <CartDataCell label="Total: "
+                    :value="`${(item.product.price * item.quanitity).toFixed(2)} ${CURRENCY}`" />
                 <div class="flex items-center justify-center">
                     <Icon name="icomoon-free:bin" class="dark-icon size-6" @click="handleProductRemove(item.product)" />
                 </div>
